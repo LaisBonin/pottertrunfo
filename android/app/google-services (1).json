@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "129606302192",
+    "project_id": "pottertrunfo",
+    "storage_bucket": "pottertrunfo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129606302192:android:229718fae03de5f9660535",
+        "android_client_info": {
+          "package_name": "com.company.pottertrunfo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "129606302192-cknrlbug6soo130fqfn723sna0tr2sn3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCS_MSdSvw618kQao8sx14tbo67dGwh-EI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "129606302192-cknrlbug6soo130fqfn723sna0tr2sn3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
