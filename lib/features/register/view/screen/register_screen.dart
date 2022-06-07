@@ -1,14 +1,13 @@
 import 'package:potter_trunfo/core/generics/resource.dart';
-import 'package:potter_trunfo/core/widgets/dialog_box.dart';
-import 'package:potter_trunfo/features/login/view/controller/login_controller.dart';
+import 'package:potter_trunfo/features/register/view/controller/register_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:lottie/lottie.dart';
 
-class LoginScreen extends StatelessWidget {
-  final _controller = Modular.get<LoginController>();
-  LoginScreen({Key? key}) : super(key: key);
+class RegisterScreen extends StatelessWidget {
+  final _controller = Modular.get<RegisterController>();
+  RegisterScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,21 +18,33 @@ class LoginScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Flexible(
-              fit: FlexFit.tight,
-              child: Hero(
-                tag: "flutter-logo",
-                child: FlutterLogo(
-                  size: double.maxFinite,
-                ),
-              ),
-            ),
+            // const Flexible(
+            //   fit: FlexFit.tight,
+            //   child: Hero(
+            //     tag: "flutter-logo",
+            //     child: FlutterLogo(
+            //       size: double.maxFinite,
+            //     ),
+            //   ),
+            // ),
             const SizedBox(
               height: 16,
             ),
             Column(
               mainAxisSize: MainAxisSize.min,
               children: [
+                Observer(builder: (_) {
+                  return TextField(
+                    decoration: InputDecoration(
+                      hintText: "Nome",
+                      border: OutlineInputBorder(
+                          borderSide: const BorderSide(color: Colors.black),
+                          borderRadius: BorderRadius.circular(16)),
+                    ),
+                    onChanged: _controller.changeName,
+                  );
+                }),
+                const SizedBox(height: 24),
                 Observer(builder: (_) {
                   return TextField(
                     decoration: InputDecoration(
@@ -62,17 +73,24 @@ class LoginScreen extends StatelessWidget {
                     onChanged: _controller.changePassword,
                   );
                 }),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    TextButton(
-                        child: const Text(
-                          "Esqueci minha senha",
-                          textAlign: TextAlign.start,
-                        ),
-                        onPressed: () {}),
-                  ],
-                ),
+                const SizedBox(height: 24),
+                Observer(builder: (_) {
+                  return TextField(
+                    obscureText: !_controller.isConfirmPasswordVisible,
+                    decoration: InputDecoration(
+                      suffixIcon: IconButton(
+                          icon: _controller.isConfirmPasswordVisible
+                              ? const Icon(Icons.visibility)
+                              : const Icon(Icons.visibility_off),
+                          onPressed:
+                              _controller.changeConfirmPasswordVisibility),
+                      hintText: "Confirm Password",
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16)),
+                    ),
+                    onChanged: _controller.changeConfirmPassword,
+                  );
+                }),
               ],
             ),
             Column(
@@ -81,9 +99,7 @@ class LoginScreen extends StatelessWidget {
               children: [
                 TextButton(
                   child: const Text("Don’t have an account? Sign Up"),
-                  onPressed: () async {
-                    await Modular.to.pushNamed('/register/');
-                  },
+                  onPressed: () async {},
                 ),
                 SizedBox(
                   height: 48,
@@ -96,9 +112,19 @@ class LoginScreen extends StatelessWidget {
                       onPressed: _controller.areCredentialsValid
                           ? () async {
                               _controller.setButtonToLoadingStatus();
-                              final resource = await _controller.loginUser();
+                              final resource = await _controller.registerUser();
                               if (resource.hasError) {
-                               
+                                // await showDialog(
+                                //         context: context,
+                                //         builder: (context) {
+                                //           // return CustomErrorDialog(
+                                //           //     errorMessage:
+                                //           //         resource.error.toString(),
+                                //           //     onPressed: () =>
+                                //           //         Navigator.pop(context));
+                                //         })
+                                //     .then((_) => _controller
+                                //         .isButtonAtLoadingStatus = false);
                               }
 
                               if (resource.status == Status.success) {
@@ -111,7 +137,7 @@ class LoginScreen extends StatelessWidget {
                               "https://assets9.lottiefiles.com/private_files/lf30_ykdoon9j.json",
                               width: 36)
                           : Text(_controller.areCredentialsValid
-                              ? "Entrar"
+                              ? "Registrar"
                               : "Credenciais inválidas"),
                     );
                   }),
