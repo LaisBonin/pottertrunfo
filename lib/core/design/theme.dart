@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 import 'app_colors.dart';
+
 ThemeData theme() {
   return ThemeData(
     // fontFamily: GoogleFonts.openSans().fontFamily,
@@ -25,7 +25,12 @@ ThemeData theme() {
         fontSize: 34,
         fontFamily: GoogleFonts.openSans().fontFamily,
       ),
-      
+      headline4: TextStyle(
+        color: AppColors.primarywhite,
+        fontWeight: FontWeight.normal,
+        fontSize: 14,
+        fontFamily: GoogleFonts.patrickHand().fontFamily,
+      ),
     ),
   );
 }
