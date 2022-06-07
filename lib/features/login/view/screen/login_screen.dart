@@ -140,7 +140,7 @@ class LoginScreen extends StatelessWidget {
                             : null,
                         child: isLoading
                             ? Lottie.network(
-                                "https://assets9.lottiefiles.com/private_files/lf30_ykdoon9j.json",
+                                "https://assets9.lottiefiles.com/private_files/lf30_nyep4twu.json",
                                 width: 36)
                             : Text(
                                 _controller.areCredentialsValid
