@@ -124,6 +124,7 @@ class LoginScreen extends StatelessWidget {
                       bool isLoading = _controller.isButtonAtLoadingStatus;
                       return ElevatedButton(
                         style: ElevatedButton.styleFrom(
+                          primary: AppColors.primarygreen,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(16))),
                         onPressed: _controller.areCredentialsValid
