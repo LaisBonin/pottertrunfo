@@ -33,17 +33,31 @@ class _CardScreenState extends State<CardScreen> {
               end: Alignment.bottomRight,
               colors: <Color>[Color(0xFF237A00), Color(0xFF003B7A)])),
       child: Scaffold(
-          backgroundColor: Colors.transparent,
-          body: 
-          Observer(builder: (_) {
+        backgroundColor: Colors.transparent,
+        body: Observer(
+          builder: (_) {
             final characters = _controller.characteresList;
-            return ListView(
-              children: [
-                for (final character in characters) Text(character.alive.toString()),
-              ],
-            );
-          },),
-          ),
+            return ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: characters.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    height: 300,
+                    width: 300,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(characters[index].name!),
+                        Text(characters[index].species.toString()),
+                        Text(characters[index].actor!),
+                        Text(characters[index].dateOfBirth!),
+                      ],
+                    ),
+                  );
+                });
+          },
+        ),
+      ),
     );
   }
 }
