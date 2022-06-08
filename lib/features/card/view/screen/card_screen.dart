@@ -34,17 +34,16 @@ class _CardScreenState extends State<CardScreen> {
               colors: <Color>[Color(0xFF237A00), Color(0xFF003B7A)])),
       child: Scaffold(
           backgroundColor: Colors.transparent,
-          body: Observer(builder: (_) {
+          body: 
+          Observer(builder: (_) {
             final characters = _controller.characteresList;
             return ListView(
               children: [
-                for (final character in characters) Text(character.name!),
-               
-                
-               ],
-               
-             );
-          })),
+                for (final character in characters) Text(character.alive.toString()),
+              ],
+            );
+          },),
+          ),
     );
   }
 }
