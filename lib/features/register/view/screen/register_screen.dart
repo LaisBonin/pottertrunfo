@@ -16,10 +16,11 @@ class RegisterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: <Color>[Color(0xFF237A00), Color(0xFF003B7A)])),
+        gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: <Color>[Color(0xFF237A00), Color(0xFF003B7A)]),
+      ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Padding(
@@ -176,7 +177,7 @@ class RegisterScreen extends StatelessWidget {
                       bool isLoading = _controller.isButtonAtLoadingStatus;
                       return ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: AppColors.primarygreen,
+                            primary: AppColors.primarygreen,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(16))),
                         onPressed: _controller.areCredentialsValid
@@ -205,7 +206,7 @@ class RegisterScreen extends StatelessWidget {
                             : null,
                         child: isLoading
                             ? Lottie.network(
-                                "https://assets9.lottiefiles.com/private_files/lf30_ykdoon9j.json",
+                                "https://assets9.lottiefiles.com/private_files/lf30_nyep4twu.json",
                                 width: 36)
                             : Text(
                                 _controller.areCredentialsValid
