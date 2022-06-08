@@ -5,3 +5,9 @@ class ApiResponse<K, V> {
 
   ApiResponse({this.data, this.error, required this.statusCode});
 }
+
+class HpApiResponse<K> {
+  K? data;
+
+  HpApiResponse({this.data});
+}
