@@ -4,14 +4,14 @@ import 'package:potter_trunfo/features/card/domain/entities/api_entity.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 abstract class CardApiUseCase {
-  Future<HpResource<HpApi>> getHouse(
+  Future<HpResource<List<HpApi>>> getHouse(
       String house);
 }
 
 class DefaultCardApiUseCase
     implements CardApiUseCase {
   @override
-  Future<HpResource<HpApi>> getHouse(
+  Future<HpResource<List<HpApi>>> getHouse(
       String house) async {
     final _datasource = Modular.get<CardRepository>();
 

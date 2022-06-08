@@ -21,10 +21,10 @@ class AppModule extends Module {
 
   @override
   List<ModularRoute> get routes => [
-        ModuleRoute(
-          Modular.initialRoute,
-          module: SplashModule(),
-        ),
+        // ModuleRoute(
+        //   Modular.initialRoute,
+        //   module: SplashModule(),
+        // ),
         ModuleRoute(
           '/login/',
           module: LoginModule(),
@@ -34,7 +34,8 @@ class AppModule extends Module {
           module: RegisterModule(),
         ),
         ModuleRoute(
-          '/home/',
+          Modular.initialRoute,
+          // '/home/',
           module: HomeModule(),
         ),
         ModuleRoute(

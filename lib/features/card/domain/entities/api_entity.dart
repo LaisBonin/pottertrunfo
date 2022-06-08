@@ -8,7 +8,7 @@ class HpApi {
   String? gender;
   String? house;
   String? dateOfBirth;
-  int? yearOfBirth;
+  dynamic yearOfBirth;
   bool? wizard;
   String? ancestry;
   String? eyeColour;
@@ -81,7 +81,7 @@ class HpApi {
     ancestry = json['ancestry'];
     eyeColour = json['eyeColour'];
     hairColour = json['hairColour'];
-    wand = json['wand'] != null ? new Wand.fromJson(json['wand']) : null;
+    wand = json['wand'] != null ?  Wand.fromJson(json['wand']) : null;
     patronus = json['patronus'];
     hogwartsStudent = json['hogwartsStudent'];
     hogwartsStaff = json['hogwartsStaff'];
@@ -132,7 +132,7 @@ class HpApi {
 class Wand {
   String? wood;
   String? core;
-  int? length;
+  dynamic length;
 
   Wand({this.wood, this.core, this.length});
 
