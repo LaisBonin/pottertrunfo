@@ -1,3 +1,4 @@
+import 'package:potter_trunfo/core/adapters/api_client/api_client.dart';
 import 'package:potter_trunfo/core/adapters/remote_client/remote_client.dart';
 import 'package:potter_trunfo/features/login/login_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -9,8 +10,8 @@ import 'features/home/home_module.dart';
 class AppModule extends Module {
   @override
   List<Bind> get binds => [
-        Bind<RemoteClient>(
-          (i) => DioRemoteClient(),
+        Bind<ApiRemoteClient>(
+          (i) => DioApiRemoteClient(),
         ),
       ];
 
