@@ -14,7 +14,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -25,22 +25,65 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         body: Center(
           child: Column(
             children: [
-              SizedBox(height: 15),
+              SizedBox(height: 60),
               SizedBox(
-                height: 150,
-                width: 150,
+                height: 40,
+                width: 240,
+                child: DefaultTextStyle(
+                    style: TextStyle(
+                        color: AppColors.primarywhite,
+                        fontFamily: GoogleFonts.patrickHand().fontFamily,
+                        fontSize: 24),
+                    child: AnimatedTextKit(animatedTexts: [
+                      TyperAnimatedText("Welcome to Potter Trunfo!",textAlign: TextAlign.center),
+                    ])),
+              ),
+              SizedBox(
+                height: 40,
+                width: 240,
+                child: DefaultTextStyle(
+                    style: TextStyle(
+                        color: AppColors.primarywhite,
+                        fontFamily: GoogleFonts.patrickHand().fontFamily,
+                        fontSize: 24),
+                    child: AnimatedTextKit(animatedTexts: [
+                      TyperAnimatedText("You're the Chosen One!!", textAlign: TextAlign.center),
+                    ])),
+              ),
+                            SizedBox(
+                height: 40,
+                width: 270,
                 child: DefaultTextStyle(
                     style: TextStyle(
                       color: AppColors.primarywhite,
                         fontFamily: GoogleFonts.patrickHand().fontFamily,
                         fontSize: 24),
                     child: AnimatedTextKit(animatedTexts: [
-                      TyperAnimatedText("Welcome to Potter Trunfo!"),
-                      TyperAnimatedText("You're the Chosen One!!"),
-                      TyperAnimatedText("Now, choose your house, pick"),
-                      TyperAnimatedText("your character and duel against"),
-                      TyperAnimatedText("your"),
-                      TyperAnimatedText("opponent!"),
+                      TyperAnimatedText("Now, choose your house, pick", textAlign: TextAlign.center),
+                    ])),
+              ),
+                            SizedBox(
+                height: 40,
+                width: 280,
+                child: DefaultTextStyle(
+                    style: TextStyle(
+                      color: AppColors.primarywhite,
+                        fontFamily: GoogleFonts.patrickHand().fontFamily,
+                        fontSize: 24),
+                    child: AnimatedTextKit(animatedTexts: [
+                      TyperAnimatedText("your character and duel against", textAlign: TextAlign.center),
+                    ])),
+              ),
+                            SizedBox(
+                height: 60,
+                width: 160,
+                child: DefaultTextStyle(
+                    style: TextStyle(
+                      color: AppColors.primarywhite,
+                        fontFamily: GoogleFonts.patrickHand().fontFamily,
+                        fontSize: 24),
+                    child: AnimatedTextKit(animatedTexts: [
+                      TyperAnimatedText("your opponent!", textAlign: TextAlign.center),
                     ])),
               )
             ],
