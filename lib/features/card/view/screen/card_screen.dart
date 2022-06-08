@@ -9,7 +9,7 @@ import 'package:potter_trunfo/features/card/view/controller/card_controller.dart
 class CardScreen extends StatefulWidget {
   final String? house;
 
-  CardScreen({Key? key,this.house}) : super(key: key);
+  const CardScreen({Key? key,this.house}) : super(key: key);
 
   @override
   State<CardScreen> createState() => _CardScreenState();

@@ -81,7 +81,7 @@ class HpApi {
     ancestry = json['ancestry'];
     eyeColour = json['eyeColour'];
     hairColour = json['hairColour'];
-    wand = json['wand'] != null ? new Wand.fromJson(json['wand']) : null;
+    wand = json['wand'] != null ?  Wand.fromJson(json['wand']) : null;
     patronus = json['patronus'];
     hogwartsStudent = json['hogwartsStudent'];
     hogwartsStaff = json['hogwartsStaff'];

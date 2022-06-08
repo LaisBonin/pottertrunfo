@@ -10,14 +10,14 @@ abstract class CardDataSource {
 }
 
 class ApiCardDataSource implements CardDataSource {
-  final _remoteClient = Modular.get<ApiRemoteClient>();
+  final _apiRemoteClient = Modular.get<ApiRemoteClient>();
 
   @override
   Future<HpResource<Map<String, dynamic>>> getHouse(
       String house) async {
-        print('cheguei no método getHouse!');
-    // final url = HpApiRoutes.houseHpApiRoute + '/$house';
-    // final response = await _apiRemoteClient.get(url);
-    return HpResource.data();
+      
+    final url = HpApiRoutes.houseHpApiRoute + '/$house';
+    final response = await _apiRemoteClient.get(url);
+    return HpResource.data(data:response.data);
   }
 }
