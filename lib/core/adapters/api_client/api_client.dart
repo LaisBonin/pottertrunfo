@@ -1,22 +1,24 @@
 import 'package:potter_trunfo/core/generics/api_response.dart';
 import 'package:dio/dio.dart';
+import 'package:potter_trunfo/features/card/domain/entities/api_entity.dart';
 
 abstract class ApiRemoteClient {
 
-  Future<HpApiResponse<Map<String, dynamic>>> get(String url);
+  Future<HpApiResponse<List<HpApi>>> get(String url);
 }
 
 class DioApiRemoteClient implements ApiRemoteClient {
   final _dio = Dio();
 
   @override
-  Future<HpApiResponse<Map<String, dynamic>>> get(
+  Future<HpApiResponse<List<HpApi>>> get(
       String url) async {
-    
-      final response = await _dio.get<Map<String, dynamic>>(url);
+
+      final response = await _dio.get(url);
+
+      final result = List<HpApi>.from(response.data.map((e) => HpApi.fromJson(e)).toList());
       
-      return HpApiResponse(data: response.data);
-    
+      return HpApiResponse(data: result);
   }
 
 }

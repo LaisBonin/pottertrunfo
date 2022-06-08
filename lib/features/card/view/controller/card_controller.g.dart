@@ -13,13 +13,13 @@ mixin _$CardController on _CardControllerBase, Store {
       Atom(name: '_CardControllerBase.characteresList', context: context);
 
   @override
-  ObservableList<dynamic> get characteresList {
+  ObservableList<HpApi> get characteresList {
     _$characteresListAtom.reportRead();
     return super.characteresList;
   }
 
   @override
-  set characteresList(ObservableList<dynamic> value) {
+  set characteresList(ObservableList<HpApi> value) {
     _$characteresListAtom.reportWrite(value, super.characteresList, () {
       super.characteresList = value;
     });

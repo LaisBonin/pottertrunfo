@@ -8,7 +8,7 @@ class HpApi {
   String? gender;
   String? house;
   String? dateOfBirth;
-  int? yearOfBirth;
+  dynamic yearOfBirth;
   bool? wizard;
   String? ancestry;
   String? eyeColour;
@@ -132,7 +132,7 @@ class HpApi {
 class Wand {
   String? wood;
   String? core;
-  int? length;
+  dynamic length;
 
   Wand({this.wood, this.core, this.length});
 

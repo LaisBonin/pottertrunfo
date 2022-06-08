@@ -9,7 +9,7 @@ import 'package:potter_trunfo/features/card/view/controller/card_controller.dart
 class CardScreen extends StatefulWidget {
   final String? house;
 
-  const CardScreen({Key? key,this.house}) : super(key: key);
+  const CardScreen({Key? key, this.house}) : super(key: key);
 
   @override
   State<CardScreen> createState() => _CardScreenState();
@@ -33,20 +33,18 @@ class _CardScreenState extends State<CardScreen> {
               end: Alignment.bottomRight,
               colors: <Color>[Color(0xFF237A00), Color(0xFF003B7A)])),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: Observer(builder: (_) {
-          return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 48),
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(widget.house!)
-            ],
-          ),
-        );
-        })
-      ),
+          backgroundColor: Colors.transparent,
+          body: Observer(builder: (_) {
+            final characters = _controller.characteresList;
+            return ListView(
+              children: [
+                for (final character in characters) Text(character.name!),
+               
+                
+               ],
+               
+             );
+          })),
     );
   }
 }
