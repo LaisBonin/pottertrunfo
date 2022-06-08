@@ -29,7 +29,7 @@ class AppModule extends Module {
         ),
         ModuleRoute(
           Modular.initialRoute,
-          module: WelcomeModule(),
+          module: HomeModule(),
         ),
         ModuleRoute(
           '/card/',

@@ -1,8 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:potter_trunfo/core/design/app_colors.dart';
 
 class HomeScreen extends StatelessWidget {
   // final _controller = Modular.get<HomeController>();
@@ -18,65 +19,84 @@ class HomeScreen extends StatelessWidget {
               colors: <Color>[Color(0xFF237A00), Color(0xFF003B7A)])),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 48),
+        body: Center(
           child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Flexible(
-               fit: FlexFit.tight,
-                child: Row(
-                  children: const [
-                    Text("Escolha sua casa"),
-                  ],
+              SizedBox(height: 25),
+              Container(
+                height: 150,
+                width: 140,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("lib/assets/logo.app.png"),
+                  ),
                 ),
               ),
+              Text(
+                "Choose Your House",
+                style: TextStyle(
+                    fontFamily: GoogleFonts.patrickHand().fontFamily,
+                    fontSize: 28),
+              ),
+              SizedBox(height: 10),
               Column(
-                // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
                     children: [
                       IconButton(
-                          onPressed: () {
-                            Modular.to.pushNamed('/card/',arguments: 'slytherin');
-                          },
-                          icon: Image.asset("lib/assets/brasao.sonserina.png"),
-                          iconSize: 80,),
+                        onPressed: () {
+                          Modular.to
+                              .pushNamed('/card/', arguments: 'slytherin');
+                        },
+                        icon: Image.asset("lib/assets/brasao.sonserina.png"),
+                        iconSize: 180,
+                      ),
                       IconButton(
-                          onPressed: () {
-                            Modular.to.navigate('/card/gryffindor');
-                          },
-                          icon: Image.asset("lib/assets/brasao.grifinoria.png"),
-                          iconSize: 80,),
+                        onPressed: () {
+                          Modular.to.navigate('/card/gryffindor');
+                        },
+                        icon: Image.asset("lib/assets/brasao.grifinoria.png"),
+                        iconSize: 180,
+                      ),
                     ],
                   ),
                 ],
               ),
               Column(
-                
-                // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
                     children: [
                       IconButton(
-                          onPressed: () {
-                            Modular.to.navigate('/card/ravenclaw');
-                          },
-                          icon: Image.asset("lib/assets/brasao.corvinal.png"),
-                          iconSize: 80,
-                          ),
+                        onPressed: () {
+                          Modular.to.navigate('/card/ravenclaw');
+                        },
+                        icon: Image.asset("lib/assets/brasao.corvinal.png"),
+                        iconSize: 180,
+                      ),
                       IconButton(
-                          onPressed: () {
-                            Modular.to.navigate('/card/hufflepuff');
-                          },
-                          icon: Image.asset("lib/assets/logo.lufalufa.jpg"),
-                          iconSize: 80,),
+                        onPressed: () {
+                          Modular.to.navigate('/card/hufflepuff');
+                        },
+                        icon: Image.asset("lib/assets/logo.lufalufa.jpg"),
+                        iconSize: 180,
+                      ),
                     ],
                   ),
                 ],
+              ),
+              const SizedBox(height: 50),
+              IconButton(
+                onPressed: () {
+                  //COSNTRUIR O LOGOUT
+                },
+                icon: const Icon(
+                  Icons.logout_outlined,
+                  size: 70,
+                  color: AppColors.primarywhite,
+                ),
               )
             ],
           ),
