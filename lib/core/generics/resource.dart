@@ -10,4 +10,9 @@ class Resource<T, E> {
   Resource.failed({this.data, this.error, this.status = Status.failed});
 }
 
+class HpResource<T> {
+  T? data;
+
+  HpResource.data({this.data});
+}
 enum Status { loading, failed, success }

@@ -11,8 +11,7 @@ class LoginModule extends Module {
   List<Bind> get binds => [
         Bind<LoginRemoteDataSource>((i) => ApiLoginRemoteDataSource()),
         Bind<LoginRepository>((i) => DefaultLoginRepository()),
-        Bind<LoginWithCredentialsUseCase>(
-            (i) => DefaultLoginWithCredentialsUseCase()),
+        Bind<LoginWithCredentialsUseCase>((i) => DefaultLoginWithCredentialsUseCase()),
         Bind<LoginController>((i) => LoginController())
       ];
 
