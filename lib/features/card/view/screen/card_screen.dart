@@ -20,11 +20,11 @@ class CardScreen extends StatefulWidget {
 class _CardScreenState extends State<CardScreen> {
   int score = 0;
 
-  void addPoints(int score) {
+  void addPoints() {
     score++;
   }
 
-  void removePoints(int score) {
+  void removePoints() {
     score--;
   }
 
@@ -92,7 +92,7 @@ class _CardScreenState extends State<CardScreen> {
                                       width: 163,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(14),
-                                        image: (char.image is String)
+                                        image: (char.image!.length>10)
                                             ? DecorationImage(
                                                 fit: BoxFit.fill,
                                                 image:
@@ -255,7 +255,7 @@ class _CardScreenState extends State<CardScreen> {
                           iconSize: 40,
                           onPressed: () {
                             setState(() {
-                              removePoints(score);
+                              removePoints();
                             });
                           },
                           icon: Icon(
@@ -300,7 +300,7 @@ class _CardScreenState extends State<CardScreen> {
                           iconSize: 40,
                           onPressed: () {
                             setState(() {
-                              addPoints(score);
+                              addPoints();
                             });
                           },
                           icon: Icon(
