@@ -90,16 +90,6 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 50),
-              IconButton(
-                onPressed: () {
-                  //COSNTRUIR O LOGOUT
-                },
-                icon: const Icon(
-                  Icons.logout_outlined,
-                  size: 70,
-                  color: AppColors.primarywhite,
-                ),
-              )
             ],
           ),
         ),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:potter_trunfo/core/design/app_colors.dart';
 
+import '../../../../core/widgets/custom_drawer.dart';
+
 class RulesScreen extends StatefulWidget {
   const RulesScreen({Key? key}) : super(key: key);
 
@@ -19,6 +21,7 @@ class _RulesScreenState extends State<RulesScreen> {
               opacity: 0.4,
               fit: BoxFit.cover)),
       child: Scaffold(
+        drawer: CustomDrawer(),
         backgroundColor: Colors.transparent,
         body: Center(
           child: Column(children: [
