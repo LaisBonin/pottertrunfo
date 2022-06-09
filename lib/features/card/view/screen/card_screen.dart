@@ -17,12 +17,14 @@ class CardScreen extends StatefulWidget {
 }
 
 class _CardScreenState extends State<CardScreen> {
-  void addPoint(int points) {
-    points++;
+  int score = 0;
+
+  void addPoints(int score) {
+    score++;
   }
 
-  void removePoints(int points) {
-    points--;
+  void removePoints(int score) {
+    score--;
   }
 
   final _controller = Modular.get<CardController>();
@@ -51,10 +53,11 @@ class _CardScreenState extends State<CardScreen> {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
+                  SizedBox(height: 50),
                   CarouselSlider(
                     options: CarouselOptions(
                       enlargeCenterPage: true,
-                      height: 477.0,
+                      height: 583.0,
                       viewportFraction: 1.0,
                       onPageChanged: (index, reason) {
                         setState(() {
@@ -65,7 +68,8 @@ class _CardScreenState extends State<CardScreen> {
                     items: characters.map((char) {
                       return Builder(builder: (BuildContext context) {
                         return Container(
-                            width: 320,
+                            width: 340,
+                            height: 583,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
                               border: Border.all(
@@ -83,8 +87,8 @@ class _CardScreenState extends State<CardScreen> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Container(
-                                      height: 200,
-                                      width: 160,
+                                      height: 230,
+                                      width: 163,
                                       decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(14),
@@ -230,54 +234,82 @@ class _CardScreenState extends State<CardScreen> {
                       });
                     }).toList(),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       IconButton(
+                        iconSize: 50,
                         onPressed: () {
                           setState(() {});
                           removePoints;
                         },
                         icon: Container(
-                          height: 50,
-                          width: 50,
+                          height: 70,
+                          width: 70,
                           decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             color: Colors.red,
                           ),
-                          child: Center(
-                            child: Text(
-                              "-",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 26,
-                                fontFamily: GoogleFonts.patrickHand().fontFamily,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                            ),
+                          child: Text(
+                            "-",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 30,
+                                fontFamily:
+                                    GoogleFonts.patrickHand().fontFamily,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
+                      const SizedBox(width: 20),
+                      Container(
+                        alignment: Alignment.center,
+                        height: 50,
+                        width: 70,
+                        decoration: BoxDecoration(
+                          color: AppColors.primarywhite,
+                          borderRadius: BorderRadius.circular(14),
+                          border: Border.all(
+                            color: Color(0xFFFFCE1F),
+                            width: 4,
+                          ),
+                        ),
+                        child: Text(
+                          '$score',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: GoogleFonts.patrickHand().fontFamily,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 20),
                       IconButton(
+                        iconSize: 50,
                         onPressed: () {
                           setState(() {});
-                          addPoint;
+                          addPoints;
                         },
                         icon: Container(
-                          height: 50,
-                          width: 50,
+                          alignment: Alignment.center,
+                          height: 70,
+                          width: 70,
                           decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             color: Colors.green,
                           ),
-                          child: const Center(
-                            child: Text(
-                              "+",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                            ),
+                          child: Text(
+                            "+",
+                            style: TextStyle(
+                                fontSize: 30,
+                                fontFamily:
+                                    GoogleFonts.patrickHand().fontFamily,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
