@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -74,16 +75,23 @@ class _CardScreenState extends State<CardScreen> {
                                       height: 200,
                                       width: 200,
                                       decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                              fit: BoxFit.fill,
-                                              image:
-                                                  NetworkImage(char.image!))),
+                                          image: (char.image is String)
+                                              ? DecorationImage(
+                                                  fit: BoxFit.fill,
+                                                  image:
+                                                      NetworkImage(char.image!),
+                                                )
+                                              : const DecorationImage(
+                                                  fit: BoxFit.fill,
+                                                  image: AssetImage(
+                                                      "imagem para nulos"),),),
                                     ),
                                   ],
                                 ),
                                 Row(
                                   children: [
-                                    const Text("Name:",style: TextStyle(
+                                    const Text("Name:",
+                                        style: TextStyle(
                                             color: AppColors.primaryblue)),
                                     Text(char.name!,
                                         style: const TextStyle(
@@ -116,7 +124,7 @@ class _CardScreenState extends State<CardScreen> {
                   ),
                   // Row(
                   //   mainAxisAlignment: MainAxisAlignment.center,
-                  //   children: map<Widget>(cardList, (index, url) {
+                  //   children: map<Widget>(characteresList, (index, url) {
                   //     return Container(
                   //       width: 10.0,
                   //       height: 10.0,
@@ -126,7 +134,7 @@ class _CardScreenState extends State<CardScreen> {
                   //         shape: BoxShape.circle,
                   //         color: _currentIndex == index
                   //             ? Colors.grey
-                  //             : HelpTheme.helpYellow,
+                  //             : AppColors.primaryblue,
                   //       ),
                   //     );
                   //   }),
