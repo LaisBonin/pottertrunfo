@@ -238,28 +238,22 @@ class _CardScreenState extends State<CardScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      IconButton(
-                        iconSize: 50,
-                        onPressed: () {
-                          setState(() {});
-                          removePoints;
-                        },
-                        icon: Container(
-                          height: 70,
-                          width: 70,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.red,
-                          ),
-                          child: Text(
-                            "-",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontSize: 30,
-                                fontFamily:
-                                    GoogleFonts.patrickHand().fontFamily,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
+                      Container(
+                        height: 60,
+                        width: 60,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.red,
+                        ),
+                        child: IconButton(
+                          iconSize: 40,
+                          onPressed: () {
+                            setState(() {});
+                            removePoints;
+                          },
+                          icon: Icon(
+                            Icons.close,
+                            color: Colors.black,
                           ),
                         ),
                       ),
@@ -280,7 +274,7 @@ class _CardScreenState extends State<CardScreen> {
                           '$score',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 30,
                             fontWeight: FontWeight.bold,
                             fontFamily: GoogleFonts.patrickHand().fontFamily,
                             color: Colors.black,
@@ -288,28 +282,22 @@ class _CardScreenState extends State<CardScreen> {
                         ),
                       ),
                       const SizedBox(width: 20),
-                      IconButton(
-                        iconSize: 50,
-                        onPressed: () {
-                          setState(() {});
-                          addPoints;
-                        },
-                        icon: Container(
-                          alignment: Alignment.center,
-                          height: 70,
-                          width: 70,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.green,
-                          ),
-                          child: Text(
-                            "+",
-                            style: TextStyle(
-                                fontSize: 30,
-                                fontFamily:
-                                    GoogleFonts.patrickHand().fontFamily,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
+                      Container(
+                        height: 60,
+                        width: 60,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.green,
+                        ),
+                        child: IconButton(
+                          iconSize: 40,
+                          onPressed: () {
+                            setState(() {});
+                            addPoints;
+                          },
+                          icon: Icon(
+                            Icons.check,
+                            color: Colors.black,
                           ),
                         ),
                       ),
