@@ -60,7 +60,6 @@ class HomeScreen extends StatelessWidget {
                           onPressed: () {
                             Modular.to
                                 .pushNamed('/card/', arguments: 'gryffindor');
-                            
                           },
                           icon: Image.asset("lib/assets/brasao.grifinoria.png"),
                           iconSize: 180,
@@ -75,11 +74,9 @@ class HomeScreen extends StatelessWidget {
                     Row(
                       children: [
                         IconButton(
-                          
                           onPressed: () {
                             Modular.to
                                 .pushNamed('/card/', arguments: 'ravenclaw');
-                            
                           },
                           icon: Image.asset("lib/assets/brasao.corvinal.png"),
                           iconSize: 180,
@@ -88,7 +85,6 @@ class HomeScreen extends StatelessWidget {
                           onPressed: () {
                             Modular.to
                                 .pushNamed('/card/', arguments: 'hufflepuff');
-                            
                           },
                           icon: Image.asset("lib/assets/logo.lufalufa.jpg"),
                           iconSize: 180,

@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:potter_trunfo/core/design/app_colors.dart';
 import 'package:potter_trunfo/features/home/home_module.dart';
@@ -41,7 +42,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     animatedTexts: [
                       TyperAnimatedText("Welcome to Potter Trunfo!",
                           textAlign: TextAlign.center,
-                          speed: Duration(milliseconds: 140)),
+                          speed: Duration(milliseconds: 160)),
                     ],
                   ),
                 ),
@@ -59,7 +60,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     animatedTexts: [
                       TyperAnimatedText("You're the Chosen One!!",
                           textAlign: TextAlign.center,
-                          speed: Duration(milliseconds: 140)),
+                          speed: Duration(milliseconds: 160)),
                     ],
                   ),
                 ),
@@ -77,7 +78,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     animatedTexts: [
                       TyperAnimatedText("Now, choose your house, pick",
                           textAlign: TextAlign.center,
-                          speed: Duration(milliseconds: 140)),
+                          speed: Duration(milliseconds: 160)),
                     ],
                   ),
                 ),
@@ -95,7 +96,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     animatedTexts: [
                       TyperAnimatedText("your character and duel against",
                           textAlign: TextAlign.center,
-                          speed: Duration(milliseconds: 140)),
+                          speed: Duration(milliseconds: 160)),
                     ],
                   ),
                 ),
@@ -113,7 +114,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     animatedTexts: [
                       TyperAnimatedText("your opponent!",
                           textAlign: TextAlign.center,
-                          speed: Duration(milliseconds: 140)),
+                          speed: Duration(milliseconds: 160)),
                     ],
                   ),
                 ),
@@ -137,7 +138,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       borderRadius: BorderRadius.circular(16),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Modular.to.pushNamed('/rules/');
+                  },
                   child: Text(
                     "How to Play",
                     style: TextStyle(
@@ -158,12 +161,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: ((context) => HomeScreen()),
-                      ),
-                    );
+                    Modular.to.pushNamed('/home/');
                   },
                   child: Text(
                     "Let's Play!",

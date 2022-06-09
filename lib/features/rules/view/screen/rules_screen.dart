@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:potter_trunfo/core/design/app_colors.dart';
 
@@ -152,7 +153,7 @@ class _RulesScreenState extends State<RulesScreen> {
                       ),
                     ),
                     Text(
-                      "* HOGWARTS STUDENT: Yes > No",
+                      "* HOGWARTS STUDENT: True > False",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontFamily: GoogleFonts.patrickHand().fontFamily,
@@ -161,7 +162,7 @@ class _RulesScreenState extends State<RulesScreen> {
                       ),
                     ),
                     Text(
-                      "* ALIVE: Yes > No",
+                      "* ALIVE: True > False",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontFamily: GoogleFonts.patrickHand().fontFamily,
@@ -170,18 +171,40 @@ class _RulesScreenState extends State<RulesScreen> {
                       ),
                     ),
                     Text(
-                      "* HOGWARTS STAFF: Yes > No",
+                      "* HOGWARTS STAFF: True > False",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontFamily: GoogleFonts.patrickHand().fontFamily,
                         fontSize: 20,
                         color: AppColors.primarywhite,
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    SizedBox(
+                      height: 40,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: AppColors.primarywhite,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                        ),
+                        onPressed: () {
+                          Modular.to.pushNamed('/home/');
+                        },
+                        child: Text(
+                          "Let's Play!",
+                          style: TextStyle(
+                              fontFamily: GoogleFonts.patrickHand().fontFamily,
+                              fontSize: 26,
+                              color: AppColors.primaryblue),
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
-            )
+            ),
           ]),
         ),
       ),

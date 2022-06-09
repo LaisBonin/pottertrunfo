@@ -53,11 +53,17 @@ class _CardScreenState extends State<CardScreen> {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
-                  SizedBox(height: 50),
+                  Container(
+                    height: 140,
+                    width: 120,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage("lib/assets/logo.app.png"))),
+                  ),
                   CarouselSlider(
                     options: CarouselOptions(
                       enlargeCenterPage: true,
-                      height: 583.0,
+                      height: 560.0,
                       viewportFraction: 1.0,
                       onPageChanged: (index, reason) {
                         setState(() {

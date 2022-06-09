@@ -1,9 +1,11 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:potter_trunfo/core/design/app_colors.dart';
 import 'package:potter_trunfo/features/home/view/screen/home_screen.dart';
+import 'package:potter_trunfo/features/login/view/screen/login_screen.dart';
 import 'package:potter_trunfo/features/rules/view/screen/rules_screen.dart';
 
 class CustomDrawer extends StatefulWidget {
@@ -29,70 +31,67 @@ class _CustomDrawerState extends State<CustomDrawer> {
               child: Container(
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage("lib/assets/fundo.drawer1.png"),
+                      image: AssetImage("lib/assets/fundo.drawer.png"),
                       fit: BoxFit.fill,
-                      opacity: 0.4),
+                      opacity: 0.8),
                 ),
               ),
             ),
             Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 const SizedBox(height: 80),
-                Container(
-                  height: 150,
-                  width: 140,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("lib/assets/logo.app.png"),
+                Padding(
+                  padding: const EdgeInsets.only(right: 80),
+                  child: Container(
+                    height: 210,
+                    width: 200,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("lib/assets/logo.app.png"),
+                      ),
                     ),
                   ),
                 ),
+                SizedBox(height: 40),
                 Row(
                   children: [
                     const SizedBox(width: 30),
                     Container(
-                      height: 50,
-                      width: 50,
+                      height: 55,
+                      width: 55,
                       decoration: const BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage("lib/assets/pomo.icon.png"))),
                     ),
                     TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const RulesScreen(),
-                            ),
-                          );
-                        },
-                        child: Text("How to Play",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: AppColors.primarywhite,
-                                fontFamily:
-                                    GoogleFonts.patrickHand().fontFamily,
-                                fontSize: 24))),
+                      onPressed: () {
+                        Modular.to.pushNamed('/rules/');
+                      },
+                      child: Text(
+                        "How to Play",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: AppColors.primarywhite,
+                            fontFamily: GoogleFonts.patrickHand().fontFamily,
+                            fontSize: 24),
+                      ),
+                    ),
                   ],
                 ),
                 Row(
                   children: [
                     const SizedBox(width: 30),
                     Container(
-                      height: 50,
-                      width: 50,
+                      height: 55,
+                      width: 55,
                       decoration: const BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage("lib/assets/pomo.icon.png"))),
                     ),
                     TextButton(
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => HomeScreen(),
-                            ),
-                          );
+                          Modular.to.pushNamed('/home/');
                         },
                         child: Text("Home",
                             textAlign: TextAlign.center,
@@ -107,20 +106,18 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   children: [
                     const SizedBox(width: 30),
                     Container(
-                      height: 50,
-                      width: 50,
+                      height: 55,
+                      width: 55,
                       decoration: const BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage("lib/assets/pomo.icon.png"))),
                     ),
                     TextButton(
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const RulesScreen(),
-                            ),
-                          );
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginScreen()));
                         },
                         child: Text("Logout",
                             textAlign: TextAlign.center,
@@ -145,47 +142,107 @@ class DrawerStyle extends CustomClipper<Path> {
   Path getClip(Size size) {
     var path = Path();
 
-    path.moveTo(size.width * 0.0016667, size.height * 0.0038462);
-    path.quadraticBezierTo(size.width * 0.5689833, size.height * -0.0173974,
-        size.width * 0.9057167, size.height * 0.0713205);
+    path.moveTo(size.width * 0.0016667, size.height * 0.0037975);
+    path.quadraticBezierTo(size.width * 0.6471833, size.height * -0.0017595,
+        size.width * 0.8050000, size.height * 0.0544304);
     path.cubicTo(
-        size.width * 0.6817333,
-        size.height * 0.0621538,
-        size.width * 0.7026167,
-        size.height * 0.1710513,
-        size.width * 0.7104000,
-        size.height * 0.1899103);
+        size.width * 0.8868833,
+        size.height * 0.0843165,
+        size.width * 0.8949500,
+        size.height * 0.1300506,
+        size.width * 0.8983333,
+        size.height * 0.1569620);
     path.cubicTo(
-        size.width * 0.7331500,
-        size.height * 0.2209487,
-        size.width * 0.7625167,
-        size.height * 0.2545897,
-        size.width * 0.8666667,
-        size.height * 0.2653846);
-    path.quadraticBezierTo(size.width * 0.8051167, size.height * 0.3155385,
-        size.width * 0.7133333, size.height * 0.3051282);
-    path.quadraticBezierTo(size.width * 0.7225500, size.height * 0.4137949,
-        size.width * 0.8683333, size.height * 0.4589744);
-    path.quadraticBezierTo(size.width * 0.8466500, size.height * 0.5119359,
-        size.width * 0.7200000, size.height * 0.5000000);
-    path.quadraticBezierTo(size.width * 0.7419167, size.height * 0.6216282,
-        size.width * 0.8600000, size.height * 0.5730769);
-    path.quadraticBezierTo(size.width * 0.8304333, size.height * 0.6404359,
-        size.width * 0.7216667, size.height * 0.6628205);
-    path.quadraticBezierTo(size.width * 0.6793833, size.height * 0.7500769,
-        size.width * 0.8616667, size.height * 0.8064103);
-    path.quadraticBezierTo(size.width * 0.8348500, size.height * 0.8455256,
-        size.width * 0.7300000, size.height * 0.8423077);
-    path.quadraticBezierTo(size.width * 0.7200333, size.height * 0.9101026,
-        size.width * 0.8633333, size.height * 0.9205128);
-    path.quadraticBezierTo(size.width * 0.6421167, size.height * 1.0130000,
-        size.width * 0.0033333, size.height * 0.9961538);
+        size.width * 0.8979500,
+        size.height * 0.1906709,
+        size.width * 0.8717000,
+        size.height * 0.2103038,
+        size.width * 0.8400000,
+        size.height * 0.2253165);
+    path.quadraticBezierTo(size.width * 0.8195667, size.height * 0.2368608,
+        size.width * 0.7733333, size.height * 0.2367089);
+    path.quadraticBezierTo(size.width * 0.8849500, size.height * 0.1791899,
+        size.width * 0.8150000, size.height * 0.1468354);
+    path.cubicTo(
+        size.width * 0.7725000,
+        size.height * 0.1298987,
+        size.width * 0.7510000,
+        size.height * 0.1447342,
+        size.width * 0.7266667,
+        size.height * 0.1670886);
+    path.cubicTo(
+        size.width * 0.6971333,
+        size.height * 0.2012025,
+        size.width * 0.7171667,
+        size.height * 0.2301266,
+        size.width * 0.7600000,
+        size.height * 0.2582278);
+    path.cubicTo(
+        size.width * 0.8005667,
+        size.height * 0.3136456,
+        size.width * 0.8145167,
+        size.height * 0.3347975,
+        size.width * 0.9083333,
+        size.height * 0.2987342);
+    path.quadraticBezierTo(size.width * 0.9275333, size.height * 0.3402785,
+        size.width * 0.8800000, size.height * 0.3632911);
+    path.quadraticBezierTo(size.width * 0.8289500, size.height * 0.3915316,
+        size.width * 0.7800000, size.height * 0.3797468);
+    path.cubicTo(
+        size.width * 0.7194167,
+        size.height * 0.3678228,
+        size.width * 0.7275667,
+        size.height * 0.4355823,
+        size.width * 0.7450000,
+        size.height * 0.4481013);
+    path.cubicTo(
+        size.width * 0.7643833,
+        size.height * 0.4845063,
+        size.width * 0.7880833,
+        size.height * 0.4859114,
+        size.width * 0.8100000,
+        size.height * 0.4886076);
+    path.cubicTo(
+        size.width * 0.8575167,
+        size.height * 0.4930633,
+        size.width * 0.8758500,
+        size.height * 0.4791139,
+        size.width * 0.8916667,
+        size.height * 0.4632911);
+    path.cubicTo(
+        size.width * 0.9666500,
+        size.height * 0.5206582,
+        size.width * 0.9098833,
+        size.height * 0.5658987,
+        size.width * 0.8850000,
+        size.height * 0.5797468);
+    path.cubicTo(
+        size.width * 0.8501167,
+        size.height * 0.6015570,
+        size.width * 0.7651000,
+        size.height * 0.5578734,
+        size.width * 0.7516667,
+        size.height * 0.6025316);
+    path.quadraticBezierTo(size.width * 0.7346667, size.height * 0.6493924,
+        size.width * 0.7433333, size.height * 0.7000000);
+    path.quadraticBezierTo(size.width * 0.7495167, size.height * 0.7419494,
+        size.width * 0.8400000, size.height * 0.7202532);
+    path.quadraticBezierTo(size.width * 0.8816667, size.height * 0.6988987,
+        size.width * 0.8583333, size.height * 0.6455696);
+    path.quadraticBezierTo(size.width * 0.9295167, size.height * 0.6801139,
+        size.width * 0.9200000, size.height * 0.7493671);
+    path.quadraticBezierTo(size.width * 0.9017167, size.height * 0.8146329,
+        size.width * 0.7531833, size.height * 0.8207468);
+    path.quadraticBezierTo(size.width * 0.6773500, size.height * 0.8376203,
+        size.width * 0.8800000, size.height * 0.8898734);
+    path.quadraticBezierTo(size.width * 0.7453000, size.height * 1.0050127,
+        size.width * 0.0033333, size.height * 0.9987342);
 
     return path;
   }
 
   @override
   bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
-    throw UnimplementedError();
+    return true;
   }
 }

@@ -1,6 +1,7 @@
 import 'package:google_fonts/google_fonts.dart';
 import 'package:potter_trunfo/core/design/app_colors.dart';
 import 'package:potter_trunfo/core/generics/resource.dart';
+import 'package:potter_trunfo/core/widgets/custom_drawer.dart';
 import 'package:potter_trunfo/core/widgets/dialog_box.dart';
 import 'package:potter_trunfo/features/login/view/controller/login_controller.dart';
 import 'package:flutter/material.dart';
@@ -79,8 +80,12 @@ class LoginScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(16)),
                         suffixIcon: IconButton(
                             icon: _controller.isPasswordVisible
-                                ? const Icon(Icons.visibility, color: AppColors.primarywhite)
-                                : const Icon(Icons.visibility_off, color: AppColors.primarywhite,),
+                                ? const Icon(Icons.visibility,
+                                    color: AppColors.primarywhite)
+                                : const Icon(
+                                    Icons.visibility_off,
+                                    color: AppColors.primarywhite,
+                                  ),
                             onPressed: _controller.changePasswordVisibility),
                         hintText: "Password",
                         border: OutlineInputBorder(
@@ -124,7 +129,7 @@ class LoginScreen extends StatelessWidget {
                       bool isLoading = _controller.isButtonAtLoadingStatus;
                       return ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: AppColors.primarygreen,
+                            primary: AppColors.primarygreen,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(16))),
                         onPressed: _controller.areCredentialsValid
@@ -134,7 +139,7 @@ class LoginScreen extends StatelessWidget {
                                 if (resource.hasError) {}
 
                                 if (resource.status == Status.success) {
-                                  Modular.to.pushNamed('/home/');
+                                  Modular.to.pushNamed('/welcome/');
                                 }
                               }
                             : null,
