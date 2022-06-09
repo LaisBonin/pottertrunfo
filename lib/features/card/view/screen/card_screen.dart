@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -90,12 +91,17 @@ class _CardScreenState extends State<CardScreen> {
                                       height: 230,
                                       width: 163,
                                       decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(14),
-                                          image: DecorationImage(
-                                              fit: BoxFit.fill,
-                                              image:
-                                                  NetworkImage(char.image!))),
+                                        borderRadius: BorderRadius.circular(14),
+                                        image: (char.image is String)
+                                            ? DecorationImage(
+                                                fit: BoxFit.fill,
+                                                image:
+                                                    NetworkImage(char.image!))
+                                            : const DecorationImage(
+                                                fit: BoxFit.fill,
+                                                image: AssetImage(
+                                                    "foto.personagem.png")),
+                                      ),
                                     ),
                                   ],
                                 ),
