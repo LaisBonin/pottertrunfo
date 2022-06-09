@@ -26,15 +26,28 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 25),
-                Container(
-                  height: 150,
-                  width: 140,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("lib/assets/logo.app.png"),
+                Row(
+                  children: [
+                    SizedBox(width: 10),
+                    IconButton(
+                      color: AppColors.primarywhite,
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.volume_up,
+                        size: 30,
+                      ),
                     ),
-                  ),
+                    SizedBox(width: 70),
+                    Container(
+                      height: 150,
+                      width: 140,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage("lib/assets/logo.app.png"),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
                 Text(
                   "Choose Your House",
