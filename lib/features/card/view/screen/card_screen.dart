@@ -100,7 +100,7 @@ class _CardScreenState extends State<CardScreen> {
                                               : const DecorationImage(
                                                   fit: BoxFit.fill,
                                                   image: AssetImage(
-                                                      "logo.app.png"))),
+                                                      "lib/assets/foto_personagem.png"))),
                                     ),
                                   ],
                                 ),

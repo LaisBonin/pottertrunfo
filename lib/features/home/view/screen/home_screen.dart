@@ -22,82 +22,84 @@ class HomeScreen extends StatelessWidget {
         drawer: CustomDrawer(),
         backgroundColor: Colors.transparent,
         body: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(height: 25),
-              Container(
-                height: 150,
-                width: 140,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("lib/assets/logo.app.png"),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(height: 25),
+                Container(
+                  height: 150,
+                  width: 140,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("lib/assets/logo.app.png"),
+                    ),
                   ),
                 ),
-              ),
-              Text(
-                "Choose Your House",
-                style: TextStyle(
-                    fontFamily: GoogleFonts.patrickHand().fontFamily,
-                    fontSize: 28),
-              ),
-              SizedBox(height: 10),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          Modular.to
-                              .pushNamed('/card/', arguments: 'slytherin');
-                        },
-                        icon: Image.asset("lib/assets/brasao.sonserina.png"),
-                        iconSize: 180,
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          Modular.to
-                              .pushNamed('/card/', arguments: 'gryffindor');
+                Text(
+                  "Choose Your House",
+                  style: TextStyle(
+                      fontFamily: GoogleFonts.patrickHand().fontFamily,
+                      fontSize: 28),
+                ),
+                SizedBox(height: 10),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            Modular.to
+                                .pushNamed('/card/', arguments: 'slytherin');
+                          },
+                          icon: Image.asset("lib/assets/brasao.sonserina.png"),
+                          iconSize: 180,
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            Modular.to
+                                .pushNamed('/card/', arguments: 'gryffindor');
+                            
+                          },
+                          icon: Image.asset("lib/assets/brasao.grifinoria.png"),
+                          iconSize: 180,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        IconButton(
                           
-                        },
-                        icon: Image.asset("lib/assets/brasao.grifinoria.png"),
-                        iconSize: 180,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      IconButton(
-                        
-                        onPressed: () {
-                          Modular.to
-                              .pushNamed('/card/', arguments: 'ravenclaw');
-                          
-                        },
-                        icon: Image.asset("lib/assets/brasao.corvinal.png"),
-                        iconSize: 180,
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          Modular.to
-                              .pushNamed('/card/', arguments: 'hufflepuff');
-                          
-                        },
-                        icon: Image.asset("lib/assets/logo.lufalufa.jpg"),
-                        iconSize: 180,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              const SizedBox(height: 50),
-            ],
+                          onPressed: () {
+                            Modular.to
+                                .pushNamed('/card/', arguments: 'ravenclaw');
+                            
+                          },
+                          icon: Image.asset("lib/assets/brasao.corvinal.png"),
+                          iconSize: 180,
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            Modular.to
+                                .pushNamed('/card/', arguments: 'hufflepuff');
+                            
+                          },
+                          icon: Image.asset("lib/assets/logo.lufalufa.jpg"),
+                          iconSize: 180,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 50),
+              ],
+            ),
           ),
         ),
       ),
