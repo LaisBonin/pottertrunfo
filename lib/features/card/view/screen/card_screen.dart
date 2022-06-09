@@ -248,8 +248,9 @@ class _CardScreenState extends State<CardScreen> {
                         child: IconButton(
                           iconSize: 40,
                           onPressed: () {
-                            setState(() {});
-                            removePoints;
+                            setState(() {
+                              removePoints(score);
+                            });
                           },
                           icon: Icon(
                             Icons.close,
@@ -292,8 +293,9 @@ class _CardScreenState extends State<CardScreen> {
                         child: IconButton(
                           iconSize: 40,
                           onPressed: () {
-                            setState(() {});
-                            addPoints;
+                            setState(() {
+                              addPoints(score);
+                            });
                           },
                           icon: Icon(
                             Icons.check,
