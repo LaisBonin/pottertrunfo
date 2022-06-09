@@ -18,12 +18,14 @@ class CardScreen extends StatefulWidget {
 }
 
 class _CardScreenState extends State<CardScreen> {
-  void addPoint(int points) {
-    points++;
+  int score = 0;
+
+  void addPoints(int score) {
+    score++;
   }
 
-  void removePoints(int points) {
-    points--;
+  void removePoints(int score) {
+    score--;
   }
 
   final _controller = Modular.get<CardController>();
@@ -52,10 +54,11 @@ class _CardScreenState extends State<CardScreen> {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
+                  SizedBox(height: 50),
                   CarouselSlider(
                     options: CarouselOptions(
                       enlargeCenterPage: true,
-                      height: 477.0,
+                      height: 583.0,
                       viewportFraction: 1.0,
                       onPageChanged: (index, reason) {
                         setState(() {
@@ -66,7 +69,8 @@ class _CardScreenState extends State<CardScreen> {
                     items: characters.map((char) {
                       return Builder(builder: (BuildContext context) {
                         return Container(
-                            width: 320,
+                            width: 340,
+                            height: 583,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
                               border: Border.all(
@@ -84,8 +88,8 @@ class _CardScreenState extends State<CardScreen> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Container(
-                                      height: 200,
-                                      width: 160,
+                                      height: 230,
+                                      width: 163,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(14),
                                         image: (char.image is String)
@@ -236,55 +240,72 @@ class _CardScreenState extends State<CardScreen> {
                       });
                     }).toList(),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      IconButton(
-                        onPressed: () {
-                          setState(() {});
-                          removePoints;
-                        },
-                        icon: Container(
-                          height: 50,
-                          width: 50,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.red,
-                          ),
-                          child: Center(
-                            child: Text(
-                              "-",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontSize: 26,
-                                  fontFamily:
-                                      GoogleFonts.patrickHand().fontFamily,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                            ),
+                      Container(
+                        height: 60,
+                        width: 60,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.red,
+                        ),
+                        child: IconButton(
+                          iconSize: 40,
+                          onPressed: () {
+                            setState(() {
+                              removePoints(score);
+                            });
+                          },
+                          icon: Icon(
+                            Icons.close,
+                            color: Colors.black,
                           ),
                         ),
                       ),
-                      IconButton(
-                        onPressed: () {
-                          setState(() {});
-                          addPoint;
-                        },
-                        icon: Container(
-                          height: 50,
-                          width: 50,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.green,
+                      const SizedBox(width: 20),
+                      Container(
+                        alignment: Alignment.center,
+                        height: 50,
+                        width: 70,
+                        decoration: BoxDecoration(
+                          color: AppColors.primarywhite,
+                          borderRadius: BorderRadius.circular(14),
+                          border: Border.all(
+                            color: Color(0xFFFFCE1F),
+                            width: 4,
                           ),
-                          child: const Center(
-                            child: Text(
-                              "+",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                            ),
+                        ),
+                        child: Text(
+                          '$score',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: GoogleFonts.patrickHand().fontFamily,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      Container(
+                        height: 60,
+                        width: 60,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.green,
+                        ),
+                        child: IconButton(
+                          iconSize: 40,
+                          onPressed: () {
+                            setState(() {
+                              addPoints(score);
+                            });
+                          },
+                          icon: Icon(
+                            Icons.check,
+                            color: Colors.black,
                           ),
                         ),
                       ),
