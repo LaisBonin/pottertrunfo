@@ -87,12 +87,17 @@ class _CardScreenState extends State<CardScreen> {
                                       height: 200,
                                       width: 160,
                                       decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(14),
-                                          image: DecorationImage(
-                                              fit: BoxFit.fill,
-                                              image:
-                                                  NetworkImage(char.image!),),),
+                                        borderRadius: BorderRadius.circular(14),
+                                        image: (char.image is String)
+                                            ? DecorationImage(
+                                                fit: BoxFit.fill,
+                                                image:
+                                                    NetworkImage(char.image!))
+                                            : const DecorationImage(
+                                                fit: BoxFit.fill,
+                                                image: AssetImage(
+                                                    "foto.personagem.png")),
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -252,8 +257,9 @@ class _CardScreenState extends State<CardScreen> {
                               "-",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                fontSize: 26,
-                                fontFamily: GoogleFonts.patrickHand().fontFamily,
+                                  fontSize: 26,
+                                  fontFamily:
+                                      GoogleFonts.patrickHand().fontFamily,
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold),
                             ),
