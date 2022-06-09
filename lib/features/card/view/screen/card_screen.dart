@@ -19,11 +19,11 @@ class CardScreen extends StatefulWidget {
 class _CardScreenState extends State<CardScreen> {
   int score = 0;
 
-  void addPoints(int score) {
+  void addPoints() {
     score++;
   }
 
-  void removePoints(int score) {
+  void removePoints() {
     score--;
   }
 
@@ -92,10 +92,15 @@ class _CardScreenState extends State<CardScreen> {
                                       decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(14),
-                                          image: DecorationImage(
-                                              fit: BoxFit.fill,
-                                              image:
-                                                  NetworkImage(char.image!))),
+                                          image: (char.image!.isNotEmpty)
+                                              ? DecorationImage(
+                                                  fit: BoxFit.fill,
+                                                  image:
+                                                      NetworkImage(char.image!))
+                                              : const DecorationImage(
+                                                  fit: BoxFit.fill,
+                                                  image: AssetImage(
+                                                      "logo.app.png"))),
                                     ),
                                   ],
                                 ),
@@ -249,7 +254,7 @@ class _CardScreenState extends State<CardScreen> {
                           iconSize: 40,
                           onPressed: () {
                             setState(() {
-                              removePoints(score);
+                              removePoints();
                             });
                           },
                           icon: Icon(
@@ -294,7 +299,7 @@ class _CardScreenState extends State<CardScreen> {
                           iconSize: 40,
                           onPressed: () {
                             setState(() {
-                              addPoints(score);
+                              addPoints();
                             });
                           },
                           icon: Icon(
