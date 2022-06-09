@@ -18,6 +18,14 @@ class CardScreen extends StatefulWidget {
 }
 
 class _CardScreenState extends State<CardScreen> {
+  void addPoint(int points) {
+    points++;
+  }
+
+  void removePoints(int points) {
+    points--;
+  }
+
   final _controller = Modular.get<CardController>();
   int _currentIndex = 0;
 
@@ -58,11 +66,14 @@ class _CardScreenState extends State<CardScreen> {
                     items: characters.map((char) {
                       return Builder(builder: (BuildContext context) {
                         return Container(
+                            width: 320,
                             alignment: Alignment.center,
-                            decoration: const BoxDecoration(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                  color: Color(0xFFFFCE1F), width: 5.0),
                               color: AppColors.primarywhite,
                               borderRadius: BorderRadius.all(
-                                Radius.circular(10),
+                                Radius.circular(14),
                               ),
                             ),
                             child: Column(
@@ -70,96 +81,229 @@ class _CardScreenState extends State<CardScreen> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Container(
                                       height: 200,
-                                      width: 200,
+                                      width: 160,
                                       decoration: BoxDecoration(
-                                          image: (char.image is String)
-                                              ? DecorationImage(
-                                                  fit: BoxFit.fill,
-                                                  image:
-                                                      NetworkImage(char.image!),
-                                                )
-                                              : const DecorationImage(
-                                                  fit: BoxFit.fill,
-                                                  image: AssetImage(
-                                                      "imagem para nulos"),),),
+                                          borderRadius:
+                                              BorderRadius.circular(14),
+                                          image: DecorationImage(
+                                              fit: BoxFit.fill,
+                                              image:
+                                                  NetworkImage(char.image!),),),
                                     ),
                                   ],
                                 ),
-                                Row(
-                                  children: [
-                                    const Text("Name:",
-                                        style: TextStyle(
-                                            color: AppColors.primaryblue)),
-                                    Text(char.name!,
-                                        style: const TextStyle(
-                                            color: AppColors.primarygreen)),
-                                  ],
+                                Container(
+                                  width: 300,
+                                  height: 45,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(14),
+                                      color: Color(0xFFD9D9D9)),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text("Name:",
+                                          style: TextStyle(
+                                              fontSize: 24,
+                                              fontFamily:
+                                                  GoogleFonts.patrickHand()
+                                                      .fontFamily,
+                                              color: Colors.black)),
+                                      Text(char.name!,
+                                          style: TextStyle(
+                                              fontSize: 24,
+                                              fontFamily:
+                                                  GoogleFonts.patrickHand()
+                                                      .fontFamily,
+                                              color: Colors.black)),
+                                    ],
+                                  ),
                                 ),
-                                Row(
-                                  children: [
-                                    Text(char.species.toString(),
-                                        style: const TextStyle(
-                                            color: AppColors.primarygreen)),
-                                  ],
+                                Container(
+                                  width: 300,
+                                  height: 45,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(14),
+                                      color: Color(0xFFD9D9D9)),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text("Specie:",
+                                          style: TextStyle(
+                                              fontSize: 24,
+                                              fontFamily:
+                                                  GoogleFonts.patrickHand()
+                                                      .fontFamily,
+                                              color: Colors.black)),
+                                      Text(char.species.toString(),
+                                          style: TextStyle(
+                                              fontSize: 24,
+                                              fontFamily:
+                                                  GoogleFonts.patrickHand()
+                                                      .fontFamily,
+                                              color: Colors.black)),
+                                    ],
+                                  ),
                                 ),
-                                Row(children: [
-                                  Text(char.actor!,
-                                      style: const TextStyle(
-                                          color: AppColors.primarygreen)),
-                                ]),
-                                Row(
-                                  children: [
-                                    Text(char.dateOfBirth!,
-                                        style: const TextStyle(
-                                            color: AppColors.primarygreen)),
-                                  ],
+                                Container(
+                                  width: 300,
+                                  height: 45,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(14),
+                                      color: Color(0xFFD9D9D9)),
+                                  child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text("Hogwarts Student:",
+                                            style: TextStyle(
+                                                fontSize: 24,
+                                                fontFamily:
+                                                    GoogleFonts.patrickHand()
+                                                        .fontFamily,
+                                                color: Colors.black)),
+                                        Text(char.hogwartsStudent.toString(),
+                                            style: TextStyle(
+                                                fontSize: 24,
+                                                fontFamily:
+                                                    GoogleFonts.patrickHand()
+                                                        .fontFamily,
+                                                color: Colors.black)),
+                                      ]),
+                                ),
+                                Container(
+                                  width: 300,
+                                  height: 45,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(14),
+                                      color: Color(0xFFD9D9D9)),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text("Alive:",
+                                          style: TextStyle(
+                                              fontSize: 24,
+                                              fontFamily:
+                                                  GoogleFonts.patrickHand()
+                                                      .fontFamily,
+                                              color: Colors.black)),
+                                      Text(char.alive.toString(),
+                                          style: TextStyle(
+                                              fontSize: 24,
+                                              fontFamily:
+                                                  GoogleFonts.patrickHand()
+                                                      .fontFamily,
+                                              color: Colors.black)),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  width: 300,
+                                  height: 45,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(14),
+                                      color: Color(0xFFD9D9D9)),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text("Hogwarts Staff:",
+                                          style: TextStyle(
+                                              fontSize: 24,
+                                              fontFamily:
+                                                  GoogleFonts.patrickHand()
+                                                      .fontFamily,
+                                              color: Colors.black)),
+                                      Text(char.hogwartsStaff.toString(),
+                                          style: TextStyle(
+                                              fontSize: 24,
+                                              fontFamily:
+                                                  GoogleFonts.patrickHand()
+                                                      .fontFamily,
+                                              color: Colors.black)),
+                                    ],
+                                  ),
                                 )
                               ],
                             ));
                       });
                     }).toList(),
                   ),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.center,
-                  //   children: map<Widget>(characteresList, (index, url) {
-                  //     return Container(
-                  //       width: 10.0,
-                  //       height: 10.0,
-                  //       margin: const EdgeInsets.symmetric(
-                  //           vertical: 10.0, horizontal: 2.0),
-                  //       decoration: BoxDecoration(
-                  //         shape: BoxShape.circle,
-                  //         color: _currentIndex == index
-                  //             ? Colors.grey
-                  //             : AppColors.primaryblue,
-                  //       ),
-                  //     );
-                  //   }),
-                  // ),
+                  SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          setState(() {});
+                          removePoints;
+                        },
+                        icon: Container(
+                          height: 50,
+                          width: 50,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.red,
+                          ),
+                          child: Center(
+                            child: Text(
+                              "-",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 26,
+                                fontFamily: GoogleFonts.patrickHand().fontFamily,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          setState(() {});
+                          addPoint;
+                        },
+                        icon: Container(
+                          height: 50,
+                          width: 50,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.green,
+                          ),
+                          child: const Center(
+                            child: Text(
+                              "+",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+                      ),
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.center,
+                      //   children: map<Widget>(cardList, (index, url) {
+                      //     return Container(
+                      //       width: 10.0,
+                      //       height: 10.0,
+                      //       margin: const EdgeInsets.symmetric(
+                      //           vertical: 10.0, horizontal: 2.0),
+                      //       decoration: BoxDecoration(
+                      //         shape: BoxShape.circle,
+                      //         color: _currentIndex == index
+                      //             ? Colors.grey
+                      //             : HelpTheme.helpYellow,
+                      //       ),
+                      //     );
+                      //   }),
+                      // ),
+                    ],
+                  ),
                 ],
               ),
             );
-            // return ListView.builder(
-            //     scrollDirection: Axis.horizontal,
-            //     itemCount: characters.length,
-            //     itemBuilder: (context, index) {
-            //       return Container(
-            //         height: 300,
-            //         width: 300,
-            //         child: Column(
-            //           mainAxisSize: MainAxisSize.min,
-            //           children: [
-            //             Text(characters[index].name!),
-            //             Text(characters[index].species.toString()),
-            //             Text(characters[index].actor!),
-            //             Text(characters[index].dateOfBirth!),
-            //           ],
-            //         ),
-            //       );
-            //     });
           },
         ),
       ),
