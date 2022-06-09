@@ -200,7 +200,7 @@ class RegisterScreen extends StatelessWidget {
                                 }
 
                                 if (resource.status == Status.success) {
-                                  Modular.to.pushNamed('/');
+                                  Modular.to.pushNamed('/home/');
                                 }
                               }
                             : null,

@@ -17,6 +17,9 @@ class AppModule extends Module {
         Bind<ApiRemoteClient>(
           (i) => DioApiRemoteClient(),
         ),
+        Bind<RemoteClient>(
+          (i) => DioRemoteClient(),
+        ),
       ];
 
   @override
@@ -26,7 +29,7 @@ class AppModule extends Module {
         //   module: SplashModule(),
         // ),
         ModuleRoute(
-          '/login/',
+          Modular.initialRoute,
           module: LoginModule(),
         ),
         ModuleRoute(
@@ -34,8 +37,7 @@ class AppModule extends Module {
           module: RegisterModule(),
         ),
         ModuleRoute(
-          Modular.initialRoute,
-          // '/home/',
+          '/home/',
           module: HomeModule(),
         ),
         ModuleRoute(
@@ -46,7 +48,7 @@ class AppModule extends Module {
           '/welcome/',
           module: WelcomeModule(),
         ),
-                ModuleRoute(
+        ModuleRoute(
           '/rules/',
           module: RulesModule(),
         ),

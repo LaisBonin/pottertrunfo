@@ -134,7 +134,7 @@ class LoginScreen extends StatelessWidget {
                                 if (resource.hasError) {}
 
                                 if (resource.status == Status.success) {
-                                  Modular.to.pushNamed('/');
+                                  Modular.to.pushNamed('/home/');
                                 }
                               }
                             : null,
