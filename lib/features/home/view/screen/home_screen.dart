@@ -28,9 +28,10 @@ class _HomeScreenState extends State<HomeScreen> {
               colors: <Color>[Color(0xFF237A00), Color(0xFF003B7A)])),
       child: Scaffold(
         appBar: AppBar(
+          toolbarHeight: 120,
             title: const SizedBox(
-                height: 70,
-                width: 70,
+                height: 80,
+                width: 80,
                 child: Image(
                   image: AssetImage("lib/assets/logo.app.png"),
                 )),
@@ -43,11 +44,9 @@ class _HomeScreenState extends State<HomeScreen> {
         body: Center(
           child: SingleChildScrollView(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SizedBox(width: 10),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     AudioWidget.assets(
