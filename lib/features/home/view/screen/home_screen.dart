@@ -28,6 +28,13 @@ class _HomeScreenState extends State<HomeScreen> {
               colors: <Color>[Color(0xFF237A00), Color(0xFF003B7A)])),
       child: Scaffold(
         appBar: AppBar(
+            title: const SizedBox(
+                height: 70,
+                width: 70,
+                child: Image(
+                  image: AssetImage("lib/assets/logo.app.png"),
+                )),
+            centerTitle: true,
             backgroundColor: Colors.transparent,
             iconTheme: IconThemeData(color: AppColors.primarywhite),
             elevation: 0),
@@ -60,16 +67,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       onPositionChanged: (current, duration) {
                         //onPositionChanged
                       },
-                    ),
-                    SizedBox(width: 70),
-                    Container(
-                      height: 170,
-                      width: 150,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage("lib/assets/logo.app.png"),
-                        ),
-                      ),
                     ),
                   ],
                 ),
