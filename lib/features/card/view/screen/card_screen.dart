@@ -5,6 +5,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:lottie/lottie.dart';
 import 'package:potter_trunfo/core/design/app_colors.dart';
+import 'package:potter_trunfo/core/widgets/custom_drawer.dart';
 import 'package:potter_trunfo/features/card/view/controller/card_controller.dart';
 
 class CardScreen extends StatefulWidget {
@@ -45,6 +46,7 @@ class _CardScreenState extends State<CardScreen> {
               end: Alignment.bottomRight,
               colors: <Color>[Color(0xFF237A00), Color(0xFF003B7A)])),
       child: Scaffold(
+        drawer: CustomDrawer(),
         backgroundColor: Colors.transparent,
         body: Observer(
           builder: (_) {

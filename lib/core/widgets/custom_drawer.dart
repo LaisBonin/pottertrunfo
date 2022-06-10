@@ -114,10 +114,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     ),
                     TextButton(
                         onPressed: () {
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => LoginScreen()));
+                          Modular.to.pushNamed('/login/');
                         },
                         child: Text("Logout",
                             textAlign: TextAlign.center,

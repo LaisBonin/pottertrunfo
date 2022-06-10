@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:potter_trunfo/core/design/app_colors.dart';
+import 'package:potter_trunfo/core/widgets/custom_drawer.dart';
 import 'package:potter_trunfo/features/home/home_module.dart';
 import 'package:potter_trunfo/features/home/view/screen/home_screen.dart';
 
@@ -19,10 +20,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     return Container(
       decoration: const BoxDecoration(
           image: DecorationImage(
-            opacity: 0.6,
+              opacity: 0.6,
               image: AssetImage("lib/assets/fundo.welcome.png"),
               fit: BoxFit.fill)),
       child: Scaffold(
+        drawer: CustomDrawer(),
         backgroundColor: Colors.transparent,
         body: Center(
           child: Column(
@@ -33,7 +35,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 child: Container(
                   height: 190,
                   width: 420,
-                  decoration: BoxDecoration(color: Colors.white.withOpacity(0.6), borderRadius: BorderRadius.circular(16)),
+                  decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.6),
+                      borderRadius: BorderRadius.circular(16)),
                   child: Column(
                     children: [
                       Container(
@@ -93,7 +97,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           child: AnimatedTextKit(
                             isRepeatingAnimation: false,
                             animatedTexts: [
-                              TyperAnimatedText("your character and duel against",
+                              TyperAnimatedText(
+                                  "your character and duel against",
                                   textAlign: TextAlign.center,
                                   speed: Duration(milliseconds: 160)),
                             ],
