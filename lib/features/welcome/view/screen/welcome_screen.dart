@@ -18,110 +18,111 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: <Color>[Color(0xFF237A00), Color(0xFF003B7A)]),
-      ),
+          image: DecorationImage(
+            opacity: 0.6,
+              image: AssetImage("lib/assets/fundo.welcome.png"),
+              fit: BoxFit.fill)),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Center(
           child: Column(
             children: [
-              const SizedBox(height: 60),
-              SizedBox(
-                height: 40,
-                width: 240,
-                child: DefaultTextStyle(
-                  style: TextStyle(
-                      color: AppColors.primarywhite,
-                      fontFamily: GoogleFonts.patrickHand().fontFamily,
-                      fontSize: 26),
-                  child: AnimatedTextKit(
-                    isRepeatingAnimation: false,
-                    animatedTexts: [
-                      TyperAnimatedText("Welcome to Potter Trunfo!",
-                          textAlign: TextAlign.center,
-                          speed: Duration(milliseconds: 160)),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 40,
-                width: 240,
-                child: DefaultTextStyle(
-                  style: TextStyle(
-                      color: AppColors.primarywhite,
-                      fontFamily: GoogleFonts.patrickHand().fontFamily,
-                      fontSize: 26),
-                  child: AnimatedTextKit(
-                    isRepeatingAnimation: false,
-                    animatedTexts: [
-                      TyperAnimatedText("You're the Chosen One!!",
-                          textAlign: TextAlign.center,
-                          speed: Duration(milliseconds: 160)),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 40,
-                width: 270,
-                child: DefaultTextStyle(
-                  style: TextStyle(
-                      color: AppColors.primarywhite,
-                      fontFamily: GoogleFonts.patrickHand().fontFamily,
-                      fontSize: 26),
-                  child: AnimatedTextKit(
-                    isRepeatingAnimation: false,
-                    animatedTexts: [
-                      TyperAnimatedText("Now, choose your house, pick",
-                          textAlign: TextAlign.center,
-                          speed: Duration(milliseconds: 160)),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 40,
-                width: 320,
-                child: DefaultTextStyle(
-                  style: TextStyle(
-                      color: AppColors.primarywhite,
-                      fontFamily: GoogleFonts.patrickHand().fontFamily,
-                      fontSize: 26),
-                  child: AnimatedTextKit(
-                    isRepeatingAnimation: false,
-                    animatedTexts: [
-                      TyperAnimatedText("your character and duel against",
-                          textAlign: TextAlign.center,
-                          speed: Duration(milliseconds: 160)),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 60,
-                width: 160,
-                child: DefaultTextStyle(
-                  style: TextStyle(
-                      color: AppColors.primarywhite,
-                      fontFamily: GoogleFonts.patrickHand().fontFamily,
-                      fontSize: 26),
-                  child: AnimatedTextKit(
-                    isRepeatingAnimation: false,
-                    animatedTexts: [
-                      TyperAnimatedText("your opponent!",
-                          textAlign: TextAlign.center,
-                          speed: Duration(milliseconds: 160)),
+              SizedBox(height: 100),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Container(
+                  height: 190,
+                  width: 420,
+                  decoration: BoxDecoration(color: Colors.white.withOpacity(0.6), borderRadius: BorderRadius.circular(16)),
+                  child: Column(
+                    children: [
+                      Container(
+                        child: DefaultTextStyle(
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: GoogleFonts.patrickHand().fontFamily,
+                              fontSize: 26),
+                          child: AnimatedTextKit(
+                            isRepeatingAnimation: false,
+                            animatedTexts: [
+                              TyperAnimatedText("Welcome to Potter Trunfo!",
+                                  textAlign: TextAlign.center,
+                                  speed: Duration(milliseconds: 160)),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        child: DefaultTextStyle(
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: GoogleFonts.patrickHand().fontFamily,
+                              fontSize: 26),
+                          child: AnimatedTextKit(
+                            isRepeatingAnimation: false,
+                            animatedTexts: [
+                              TyperAnimatedText("You're the Chosen One!!",
+                                  textAlign: TextAlign.center,
+                                  speed: Duration(milliseconds: 160)),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        child: DefaultTextStyle(
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: GoogleFonts.patrickHand().fontFamily,
+                              fontSize: 26),
+                          child: AnimatedTextKit(
+                            isRepeatingAnimation: false,
+                            animatedTexts: [
+                              TyperAnimatedText("Now, choose your house, pick",
+                                  textAlign: TextAlign.center,
+                                  speed: Duration(milliseconds: 160)),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        child: DefaultTextStyle(
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: GoogleFonts.patrickHand().fontFamily,
+                              fontSize: 26),
+                          child: AnimatedTextKit(
+                            isRepeatingAnimation: false,
+                            animatedTexts: [
+                              TyperAnimatedText("your character and duel against",
+                                  textAlign: TextAlign.center,
+                                  speed: Duration(milliseconds: 160)),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        child: DefaultTextStyle(
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: GoogleFonts.patrickHand().fontFamily,
+                              fontSize: 26),
+                          child: AnimatedTextKit(
+                            isRepeatingAnimation: false,
+                            animatedTexts: [
+                              TyperAnimatedText("your opponent!",
+                                  textAlign: TextAlign.center,
+                                  speed: Duration(milliseconds: 160)),
+                            ],
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
               ),
               Container(
-                height: 330,
-                width: 330,
+                height: 300,
+                width: 300,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("lib/assets/image.welcome.gif"),
