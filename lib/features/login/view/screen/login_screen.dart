@@ -36,7 +36,7 @@ class LoginScreen extends StatelessWidget {
                   child: Container(
                     height: 460,
                     width: 430,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage("lib/assets/logo.app.png"))),
                   ),
@@ -54,7 +54,7 @@ class LoginScreen extends StatelessWidget {
                       decoration: InputDecoration(
                         focusedBorder: OutlineInputBorder(
                             borderSide:
-                                BorderSide(color: AppColors.primarywhite),
+                                const BorderSide(color: AppColors.primarywhite),
                             borderRadius: BorderRadius.circular(16)),
                         hintText: "E-mail",
                         border: OutlineInputBorder(
@@ -76,7 +76,7 @@ class LoginScreen extends StatelessWidget {
                       decoration: InputDecoration(
                         focusedBorder: OutlineInputBorder(
                             borderSide:
-                                BorderSide(color: AppColors.primarywhite),
+                                const BorderSide(color: AppColors.primarywhite),
                             borderRadius: BorderRadius.circular(16)),
                         suffixIcon: IconButton(
                             icon: _controller.isPasswordVisible
@@ -94,18 +94,7 @@ class LoginScreen extends StatelessWidget {
                       onChanged: _controller.changePassword,
                     );
                   }),
-                  SizedBox(height: 50),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.start,
-                  //   children: [
-                  //     // TextButton(
-                  //     //     child: const Text(
-                  //     //       "Esqueci minha senha",
-                  //     //       textAlign: TextAlign.start,
-                  //     //     ),
-                  //     //     onPressed: () {}),
-                  //   ],
-                  // ),
+                  const SizedBox(height: 50),
                 ],
               ),
               Column(
@@ -122,7 +111,7 @@ class LoginScreen extends StatelessWidget {
                       await Modular.to.pushNamed('/register/');
                     },
                   ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   SizedBox(
                     height: 55,
                     child: Observer(builder: (_) {
@@ -137,6 +126,8 @@ class LoginScreen extends StatelessWidget {
                                 _controller.setButtonToLoadingStatus();
                                 final resource = await _controller.loginUser();
                                 if (resource.hasError) {}
+
+                                _controller.unsetButtonToLoadingStatus();
 
                                 if (resource.status == Status.success) {
                                   Modular.to.pushNamed('/welcome/');
