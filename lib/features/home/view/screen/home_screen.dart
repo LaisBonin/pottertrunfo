@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         appBar: AppBar(
             backgroundColor: Colors.transparent,
-            iconTheme: IconThemeData(color: AppColors.primarywhite),
+            iconTheme: IconThemeData(color: AppColors.primaryblue),
             elevation: 0),
         drawer: const CustomDrawer(),
         backgroundColor: Colors.transparent,
