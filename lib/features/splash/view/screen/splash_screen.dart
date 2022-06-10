@@ -11,8 +11,10 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 6));
-    Modular.to.pushNamed("/login/");
+    Future.delayed(Duration(seconds: 6), () {
+      Modular.to.pushNamed("/login/");
+    });
+
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
