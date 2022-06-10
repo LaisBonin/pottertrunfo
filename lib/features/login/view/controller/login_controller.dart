@@ -37,6 +37,9 @@ abstract class _LoginControllerBase with Store {
   void setButtonToLoadingStatus() => isButtonAtLoadingStatus = true;
 
   @action
+  void unsetButtonToLoadingStatus() => isButtonAtLoadingStatus = false;
+
+  @action
   void changePasswordVisibility() => isPasswordVisible = !isPasswordVisible;
 
   @computed
