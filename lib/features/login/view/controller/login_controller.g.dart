@@ -157,6 +157,17 @@ mixin _$LoginController on _LoginControllerBase, Store {
   }
 
   @override
+  void unsetButtonToLoadingStatus() {
+    final _$actionInfo = _$_LoginControllerBaseActionController.startAction(
+        name: '_LoginControllerBase.unsetButtonToLoadingStatus');
+    try {
+      return super.unsetButtonToLoadingStatus();
+    } finally {
+      _$_LoginControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void changePasswordVisibility() {
     final _$actionInfo = _$_LoginControllerBaseActionController.startAction(
         name: '_LoginControllerBase.changePasswordVisibility');
