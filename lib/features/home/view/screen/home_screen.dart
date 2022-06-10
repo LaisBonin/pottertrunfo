@@ -5,10 +5,22 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:potter_trunfo/core/design/app_colors.dart';
 import 'package:potter_trunfo/core/widgets/custom_drawer.dart';
+import 'package:assets_audio_player/assets_audio_player.dart';
 
-class HomeScreen extends StatelessWidget {
+
+
+class HomeScreen extends StatefulWidget {
   // final _controller = Modular.get<HomeController>();
   HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+
+  bool _play = true;
 
   @override
   Widget build(BuildContext context) {
@@ -19,25 +31,41 @@ class HomeScreen extends StatelessWidget {
               end: Alignment.bottomRight,
               colors: <Color>[Color(0xFF237A00), Color(0xFF003B7A)])),
       child: Scaffold(
-        drawer: CustomDrawer(),
+        drawer: const  CustomDrawer(),
         backgroundColor: Colors.transparent,
         body: Center(
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+               const SizedBox(width: 10),
+                Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  AudioWidget.assets(                    
+                    path: "lib/assets/audio1.mp3",
+                    play: _play,
+                    child: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          _play = !_play;
+                        });
+                      },
+                      icon: const Icon(Icons.volume_up),
+                    ),
+                    onReadyToPlay: (duration) {
+                      //onReadyToPlay
+                    },
+                    onPositionChanged: (current, duration) {
+                      //onPositionChanged
+                    },
+                  ),
+                ],
+              ),
+                const SizedBox(width: 70),
                 Row(
                   children: [
-                    SizedBox(width: 10),
-                    IconButton(
-                      color: AppColors.primarywhite,
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.volume_up,
-                        size: 30,
-                      ),
-                    ),
-                    SizedBox(width: 70),
                     Container(
                       height: 150,
                       width: 140,
@@ -55,7 +83,7 @@ class HomeScreen extends StatelessWidget {
                       fontFamily: GoogleFonts.patrickHand().fontFamily,
                       fontSize: 28),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
