@@ -1,8 +1,6 @@
 import 'package:google_fonts/google_fonts.dart';
 import 'package:potter_trunfo/core/design/app_colors.dart';
 import 'package:potter_trunfo/core/generics/resource.dart';
-import 'package:potter_trunfo/core/widgets/custom_drawer.dart';
-import 'package:potter_trunfo/core/widgets/dialog_box.dart';
 import 'package:potter_trunfo/features/login/view/controller/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -15,6 +13,10 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
+    _controller.email = "";
+    _controller.password = "";
+
     return Container(
       decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -125,10 +127,8 @@ class LoginScreen extends StatelessWidget {
                             ? () async {
                                 _controller.setButtonToLoadingStatus();
                                 final resource = await _controller.loginUser();
-                                if (resource.hasError) {}
-
                                 _controller.unsetButtonToLoadingStatus();
-
+                                if (resource.hasError) {}
                                 if (resource.status == Status.success) {
                                   Modular.to.pushNamed('/welcome/');
                                 }
