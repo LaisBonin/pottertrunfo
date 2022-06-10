@@ -27,6 +27,10 @@ class _HomeScreenState extends State<HomeScreen> {
               end: Alignment.bottomRight,
               colors: <Color>[Color(0xFF237A00), Color(0xFF003B7A)])),
       child: Scaffold(
+        appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            iconTheme: IconThemeData(color: AppColors.primarywhite),
+            elevation: 0),
         drawer: const CustomDrawer(),
         backgroundColor: Colors.transparent,
         body: Center(
