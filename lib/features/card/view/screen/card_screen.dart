@@ -55,12 +55,26 @@ class _CardScreenState extends State<CardScreen> {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
-                  Container(
-                    height: 140,
-                    width: 120,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage("lib/assets/logo.app.png"))),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          Modular.to.pushNamed('/home/');
+                        },
+                        icon: Icon(Icons.arrow_back_rounded),
+                        iconSize: 40,
+                        color: AppColors.primarywhite,
+                      ),
+                      SizedBox(width: 60),
+                      Container(
+                        height: 140,
+                        width: 120,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("lib/assets/logo.app.png"))),
+                      ),
+                    ],
                   ),
                   CarouselSlider(
                     options: CarouselOptions(
